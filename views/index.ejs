@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <style>
+      .cell {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border: 1px solid #CCC;
+        padding: 0;
+        margin: 0 !important;
+      }
+      .alive {
+        background-color: blue;
+      }
+      .dead {
+        background-color: #FFF;
+      }
+      #lifeBoard {
+        line-height: 10px;
+      }
+    </style>
+    <script type="text/javascript">
+      var inputrows = <%- irows %>;
+      var inputcols = <%- icols %>;
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.1/angular.min.js"></script>
+    <script src="../public/javascripts/angular-app.js"></script>
+  </head>
+  <body ng-app="myApp">
+    <div class="container">
+      <div ng-controller="AppCtrl">
+        <h1><%= title %></h1>
+        <hr>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>MATRIX : {{boardRows}} X {{boardCols}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>
+                <button class="btn btn-primary btn-large" ng-click="start()" ng-hide="showButton()"><strong>START</strong></button>
+                <a href="/"><button class="btn btn-primary btn-large"><strong>HOME</strong></button></a>
+                <p>
+                  <div id="lifeBoard" ng-show="showButton()" ng-bind-html-unsafe="boardHTML" class="ng-binding"></div>
+                  <div id="counter" ng-show="showButton()">Generation: {{ generations }}</div>
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </body>
+</html>

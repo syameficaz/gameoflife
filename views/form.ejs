@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.1/angular.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1><%= title %></h1>
+      <hr>
+      <form action="/" method="post" role="form" ng-app>
+        <div class="form-group">
+          <label>Rows:</label>
+          <input type="number" class="form-control" name="rows" min="10" max="50" placeholder="Enter number of Rows" required>
+        </div>
+        <div class="form-group">
+          <label>Columns:</label>
+          <input type="number" class="form-control" name="columns" min="10" max="50" placeholder="Enter number of Columns" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-large" ng-click="submitted=true">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
